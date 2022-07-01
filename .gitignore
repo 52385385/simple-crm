@@ -1,0 +1,4 @@
+db/.data
+*.session.sql
+.vscode
+node_modules

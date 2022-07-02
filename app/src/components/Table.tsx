@@ -43,3 +43,8 @@ export const Td = styled.td`
     font-size: 15px;
     padding: 0.5em 3px;
 `;
+
+export const ThIcon = styled.span`
+    font-size: 1.2em;
+    margin-left: 3px;
+`;

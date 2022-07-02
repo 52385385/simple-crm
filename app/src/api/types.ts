@@ -12,7 +12,7 @@ export interface Customer {
 export interface Opportunity {
     id: string;
     cid: string;
-    status: Opportunity_Status,
+    status: OpportunityStatus,
     name: string;
 }
 
@@ -22,7 +22,7 @@ export enum CustomerStatus {
     LEAD = 'Lead',
 }
 
-export enum Opportunity_Status {
+export enum OpportunityStatus {
     NEW = 'New',
     CLOSED_WON = 'Closed Won',
     CLOSED_LOST = 'Closed Lost'

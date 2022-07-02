@@ -88,7 +88,7 @@ export default function CustomerOpportunities() {
             <Link href={'/'}>Back to dashboard</Link>
             <TableHeadingContainer>
                 <h2>Opportunities for {customers[cid]?.name}</h2>
-                <Button onClick={onNew}>Add new opportunity</Button>
+                <Button onClick={onNew}>Add a new opportunity</Button>
             </TableHeadingContainer>
             <Table>
                 <Thead>
@@ -109,7 +109,7 @@ export default function CustomerOpportunities() {
                 </Tbody>
             </Table>
             <Dialog open={show}
-                title={selectedOpp ? 'Update opportunity' : 'Add new opportunity'}
+                title={selectedOpp ? 'Update opportunity' : 'Add a new opportunity'}
                 onClose={onHide}>
                 <Form
                     initialValues={{ name: selectedOpp?.name, status: selectedOpp?.status }}
@@ -128,7 +128,7 @@ export default function CustomerOpportunities() {
                             <Error forName='status' />
                         </Group>
                     }
-                    <Button type='submit'>Change</Button>
+                    <Button type='submit'>{selectedOpp ? 'Update' : 'Add'}</Button>
                     {err && <GeneralErr>{err}</GeneralErr>}
                 </Form>
             </Dialog>

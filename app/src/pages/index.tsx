@@ -32,7 +32,7 @@ export default function Customers() {
         let _customers = Object.values(cusobj ?? {});
         if ((filter ?? '') !== '') {
             _customers = _customers.filter(({ name, email, phone, address, description }) =>
-                `${name}${email}${phone}${address}${description ?? ''}`.includes(filter!))
+                `${name}${email}${phone}${address}${description ?? ''}`.toLowerCase().includes(filter!.toLowerCase()))
         }
         if (orderBy) {
             _customers = _customers.sort((a, b) => asc ?
@@ -48,6 +48,7 @@ export default function Customers() {
         console.log(values);
         const { status } = values;
         if (!status || !selectedCustomer || status === selectedCustomer?.status) {
+            setSelectedCustomer(undefined);
             return;
         }
         try {
@@ -103,7 +104,7 @@ export default function Customers() {
                         <FormikSelect name='status' options={CUSTOMER_STATUS_OPTIONS} />
                         <Error forName='status' />
                     </Group>
-                    <Button type='submit'>Change</Button>
+                    <Button type='submit'>Update</Button>
                     {err && <GeneralErr>{err}</GeneralErr>}
                 </Form>
             </Dialog>
